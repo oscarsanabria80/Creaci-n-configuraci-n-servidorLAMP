@@ -1,10 +1,10 @@
 # Práctica: Creacion y configuracion de un servidor LAMP
 
 
-!an.png!
+! an.png !
 
 
-##Entrega
+## Entrega
 
 1.Entrega la URL del repositorio GitHub donde has alojado todos los ficheros.
 
