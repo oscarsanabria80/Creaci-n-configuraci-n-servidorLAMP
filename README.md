@@ -1,7 +1,7 @@
 # Práctica: Creacion y configuracion de un servidor LAMP
 
 
-! an.png !
+!an.png!
 
 
 ## Entrega
