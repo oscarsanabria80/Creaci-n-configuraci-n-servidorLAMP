@@ -1,0 +1,53 @@
+- name: "ensure apache2 is installed"
+  apt:
+    pkg: apache2 , mariadb-client
+
+#virtualhost
+
+- name: Set up Apache virtualhost
+  template:
+    src: index.j2
+    dest: /etc/apache2/sites-available/{{ http_conf }}
+
+#activamos .conf
+
+- name: Enable new site
+  shell: /usr/sbin/a2ensite {{ http_conf }}
+
+
+#creamos carpeta en /var/www
+
+- name: Crear carpeta /var/www/mi_carpeta
+  ansible.builtin.file:
+    path: /var/www/{{ carpeta }}
+    state: directory
+    owner: vagrant
+    group: vagrant
+    mode: '0755'
+
+#permisos www-data
+
+- name: Asignar permisos a www-data en /var/www/mi_carpeta
+  become: true
+  command: sudo chown -R www-data:www-data /var/www/{{ carpeta }}
+
+# Copia un fichero a la máquina remota
+- name: Copiar fichero a la máquina remota
+  copy:
+    src: files/index.html
+    dest: /var/www/pagina/{{ fichero }}
+
+
+# añadir dominio hosts
+
+- name: Agregar resolución estática máquina bd en /etc/hosts
+  lineinfile: dest=/etc/hosts line="{{ ipdatos }} {{ dominiobd }}"
+
+
+# cargar modulo redwrite
+
+- name: Activar el module rewrite Apache2
+  community.general.apache2_module:
+    state: present
+    name: rewrite
+  notify: restart apache2 

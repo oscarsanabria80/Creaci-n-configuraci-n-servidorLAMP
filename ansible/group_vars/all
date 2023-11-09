@@ -1,0 +1,31 @@
+# Base de datos
+bd_name: prueba
+bd_user: oscar
+bd_pass: oscar
+dominiobd: www.bd.practica-oscar.org.es
+ipdatos: 10.0.0.6
+
+# Configuracion apache
+http_host: www.practica-oscar.org.es
+http_conf: virtualhosttarea.conf
+http_port: "80"
+disable_default: true
+rewrite: All
+carpeta: pagina
+fichero: index.html
+
+#ip host 
+#router: 192.168.121.215
+#web: 192.168.121.2
+#bd: 192.168.121.219
+
+#GRANT ALL PRIVILEGES ON *.* TO 'oscar'@'10.0.0.5' IDENTIFIED BY 'oscar';
+
+#FLUSH PRIVILEGES;
+
+#GRANT ALL PRIVILEGES ON *.* TO 'oscar'@'10.0.0.2' IDENTIFIED BY 'oscar';
+
+#SHOW GRANTS FOR 'oscar'@'10.0.0.2';
+
+
+#mariadb -u oscar -p -h www.bd.practica-oscar.org.es

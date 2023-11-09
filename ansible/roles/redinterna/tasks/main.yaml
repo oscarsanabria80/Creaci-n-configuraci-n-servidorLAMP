@@ -1,0 +1,2 @@
+- name: cambiar la ruta por defecto
+  shell: ip route delete default && ip route add default via 10.0.0.1 && echo "post-up route add -net 10.0.0.0 netmask 255.255.255.0 gw 10.0.0.0 dev eth1" >> /etc/network/interfaces
